@@ -15,6 +15,7 @@ type InfoResponse struct {
 	Messages             []string `json:"messages"`
 }
 
+// Info is interface to /info
 func (c *Client) Info() (*InfoResponse, *http.Response, error) {
 	req, err := c.newRequest("GET", "/info")
 	if err != nil {

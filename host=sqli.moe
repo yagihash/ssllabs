@@ -1,0 +1,12 @@
+HTTP/1.1 400 Bad Request
+Date: Sat, 08 Jun 2019 02:52:22 GMT
+Server: Apache
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000
+Content-Type: application/json;charset=UTF-8
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self' ssllabs.com *.ssllabs.com https://www.google-analytics.com/ https://www.googletagmanager.com/ https://stats.g.doubleclick.net https://www.google.com/ https://cdn.bizible.com https://serve.albacross.com https://collect.albacross.com https://tagmanager.google.com; script-src 'self' https://cdnjs.cloudflare.com https://www.google-analytics.com/ https://www.googletagmanager.com/ https://stats.g.doubleclick.net https://www.google.com/ https://cdn.bizible.com https://serve.albacross.com https://collect.albacross.com https://tagmanager.google.com 'sha256-b/ES1VZMgjYcvUcvmmSj/qEQTV6gTFugcTmkMS0E0qk=' 'sha256-MIHgzD5ZYexjYZVdlcHHJQONMefhA7YQw4t+st69/FA=';
+Connection: close
+Transfer-Encoding: chunked
+
