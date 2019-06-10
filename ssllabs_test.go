@@ -24,7 +24,7 @@ func TestNew(t *testing.T) {
 		},
 	}
 
-	t.Run("NewDefault", func(t *testing.T) {
+	t.Run("Default", func(t *testing.T) {
 		want := defaultClient
 		got, err := New()
 		assert.NoError(t, err)
@@ -36,7 +36,7 @@ func TestNew(t *testing.T) {
 		input Option
 		want  *Client
 	}{
-		{name: "NewWithOptionBaseURL", input: OptionBaseURL("https://example.com/test"), want: &Client{
+		{name: "OptionBaseURL", input: OptionBaseURL("https://example.com/test"), want: &Client{
 			baseURL: "https://example.com/test",
 			httpClient: &http.Client{
 				Jar: jar,
