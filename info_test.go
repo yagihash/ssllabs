@@ -18,7 +18,7 @@ func TestInfo(t *testing.T) {
 	t.Run("TestInfo", func(t *testing.T) {
 		client, err := New(OptionBaseURL(ts.URL + ssllabstest.Prefix))
 		if assert.NoError(t, err) {
-			want := &InfoResponse{}
+			want := &Info{}
 			_ = json.Unmarshal(ssllabstest.SampleResponseInfoBytes(), want)
 			got, _, err := client.Info()
 			if assert.NoError(t, err) {

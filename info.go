@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-type InfoResponse struct {
+type Info struct {
 	EngineVersion        string   `json:"engineVersion"`
 	CriteriaVersion      string   `json:"criteriaVersion"`
 	MaxAssessments       int      `json:"maxAssessments"`
@@ -16,7 +16,7 @@ type InfoResponse struct {
 }
 
 // Info is interface to /info
-func (c *Client) Info() (*InfoResponse, *http.Response, error) {
+func (c *Client) Info() (*Info, *http.Response, error) {
 	req, err := c.newRequest("GET", "/info")
 	if err != nil {
 		return nil, nil, err
@@ -29,7 +29,7 @@ func (c *Client) Info() (*InfoResponse, *http.Response, error) {
 		return nil, nil, err
 	}
 
-	data := &InfoResponse{}
+	data := &Info{}
 	if err := json.Unmarshal(buf.Bytes(), data); err != nil {
 		return nil, nil, err
 	}
