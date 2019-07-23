@@ -2,6 +2,7 @@ package ssllabs
 
 import (
 	"bytes"
+	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
@@ -64,6 +65,13 @@ func parseRootCerts(raw string) (*Certs, error) {
 
 	i := 1
 	for i+6 < len(lines) {
+		subject := map[string]string{}
+		for _, sub := range strings.Split(lines[i+1], ", ") {
+			fmt.Println(sub)
+			value := strings.Split(sub, "=")
+			subject[value[0]] = value[1]
+		}
+
 		keyLength, err := strconv.Atoi(strings.Split(lines[i+3], ": ")[1])
 		if err != nil {
 			return nil, err
@@ -83,7 +91,7 @@ func parseRootCerts(raw string) (*Certs, error) {
 
 		c := Cert{
 			Name:        lines[i][2:],
-			Subject:     map[string]string{},
+			Subject:     subject,
 			KeyType:     strings.Split(lines[i+2], ":   ")[1],
 			KeyLength:   uint(keyLength),
 			NotBefore:   notBefore,
